@@ -1,6 +1,8 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import FooterBanner from '../components/FooterBanner'
 import HeroBanner from '../components/HeroBanner'
+import Product from '../components/Product'
 import {client} from '../lib/client'
 
 
@@ -15,9 +17,9 @@ function Home({products, bannerData}) {
       <p>Speakers of many variations</p>
     </div>
     <div className='products-container'>
-    {products?.map (product => product.name)}
+    {products?.map (product => <Product key={product._id} product={product}/>)}
     </div>
-    <Footer/>
+    <FooterBanner footerBanner={bannerData && bannerData[0]}/>
     </div>
   )
 }
