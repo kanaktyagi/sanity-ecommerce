@@ -3,10 +3,10 @@ import { urlFor } from '../lib/client'
   import Link from 'next/link'
 
 
-function Product({product: {image, name, slug, price}}) {
+function Product({product: {image, name, slug, price}, specialprop=""}) {
   return (
     <div>
-      <Link href={`product/${slug.current}`}>
+      <Link href={ specialprop ? `${slug.current}` :`product/${slug.current}`}>
       <div className='product-card'>
         <img src={urlFor(image && image[0])}
         width={250}
